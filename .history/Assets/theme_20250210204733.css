@@ -1,0 +1,16 @@
+// File: assets/theme.js
+// Description: Handles store interactions like mobile menu toggle.
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Theme JS loaded successfully');
+
+  // Example: Mobile menu toggle (if needed)
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.nav-links');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+    });
+  }
+});

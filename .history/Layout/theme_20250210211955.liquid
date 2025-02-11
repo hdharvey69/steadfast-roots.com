@@ -22,7 +22,7 @@
         <!-- Load Additional Styles for Product Pages -->
         {% if template contains 'product' %}
           <style>
-            .product-page { background: #2e2e2e; color: white; padding: 20px; }
+            .product-page { background: #f9f9f9; }
           </style>
         {% endif %}
     
@@ -32,8 +32,8 @@
           "@context": "https://schema.org",
           "@type": "Store",
           "name": "{{ shop.name }}",
-          "url": "https://{{ shop.domain }}",
-          "logo": "{{ shop.logo | image_url: 'medium' }}",
+          "url": "{{ shop.url }}",
+          "logo": "{{ shop.metafields.global.logo | image_url: 'medium' }}",
           "description": "{{ shop.description }}"
         }
         </script>
@@ -44,14 +44,14 @@
     <body>
         <!-- Include Header Section -->
         {% section 'header' %}
-    
+        
         <!-- Main Content Area -->
         <main>
             {{ content_for_layout }}
         </main>
     
         <!-- Include Footer Section with Warning if Missing -->
-        {% if section.settings.footer_enabled != blank %}
+        {% if settings.footer_enabled %}
           {% section 'footer' %}
         {% else %}
           <p style="color: red; text-align: center;">⚠️ Footer is missing. Please add a footer section.</p>

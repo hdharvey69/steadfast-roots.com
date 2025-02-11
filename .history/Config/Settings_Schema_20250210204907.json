@@ -69,7 +69,7 @@
           "type": "text",
           "id": "footer_text",
           "label": "Footer Text",
-          "default": "© Steadfast Roots. All rights reserved."
+          "default": "© {{ 'now' | date: '%Y' }} Steadfast Roots. All rights reserved."
         }
       ]
     }
