@@ -1,0 +1,23 @@
+{% comment %}
+  File: layout/theme.liquid
+  Description: The main layout file for the Shopify theme.
+{% endcomment %}
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page_title }} - {{ shop.name }}</title>
+        
+        <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+        <script src="{{ 'theme.js' | asset_url }}"></script>
+      </head>
+      <body style="background-color: #2E2E2E;">
+        {% include 'header' %}
+        <main>
+          {{ content_for_layout }}
+        </main>
+        {% include 'footer' %}
+      </body>
+    </html>
+2    
