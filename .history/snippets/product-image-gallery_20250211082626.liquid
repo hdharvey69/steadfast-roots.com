@@ -1,0 +1,28 @@
+{% comment %} 
+#comment: This snippet renders a product image gallery.
+It loops through product images and displays them; if none exist, it shows a placeholder.
+{% endcomment %}
+<div class="product-gallery-snippet"> <!-- #comment: Container for the product image gallery snippet -->
+  {% if product.images.size > 0 %} <!-- #comment: Check if the product has any images -->
+    {% for image in product.images %} <!-- #comment: Loop through each product image -->
+      <img src="{{ image | image_url: 'large' }}" alt="{{ product.title }} image" width="{{ image.width }}" height="{{ image.height }}" /> <!-- #comment: Display the product image -->
+    {% endfor %} <!-- #comment: End loop through images -->
+  {% else %} <!-- #comment: If there are no images available -->
+    <img src="{{ 'placeholder.jpg' | asset_url }}" alt="Placeholder image" width="600" height="600" /> <!-- #comment: Display a placeholder image -->
+{% else %} <!-- #comment: If there are no images available -->
+    <img src="{{ 'mh_studios_A_side_view_of_a_green_furry_muppet-like_creature_we_2591a2ac-4c36-4adc-ae90-aa58ac3733b8.png' | asset_url }}" alt="Placeholder image" width="600" height="600" /> <!-- #comment: Display a placeholder image -->
+{% endif %} <!-- #comment: End image check -->
+</div> <!-- #comment: End product image gallery snippet container -->
+{% comment %} 
+#comment: This snippet renders a product image gallery.
+It loops through product images and displays them; if none exist, it shows a placeholder.
+{% endcomment %}
+<div class="product-gallery-snippet"> <!-- #comment: Container for the product image gallery snippet -->
+  {% if product.images.size > 0 %} <!-- #comment: Check if the product has any images -->
+    {% for image in product.images %} <!-- #comment: Loop through each product image -->
+      <img src="{{ image | image_url: 'large' }}" alt="{{ product.title }} image" width="{{ image.width }}" height="{{ image.height }}" /> <!-- #comment: Display the product image -->
+    {% endfor %} <!-- #comment: End loop through images -->
+  {% else %} <!-- #comment: If there are no images available -->
+    <img src="{{ 'placeholder.jpg' | asset_url }}" alt="Placeholder image" width="600" height="600" /> <!-- #comment: Display a placeholder image -->
+  {% endif %} <!-- #comment: End image check -->
+</div> <!-- #comment: End product image gallery snippet container -->

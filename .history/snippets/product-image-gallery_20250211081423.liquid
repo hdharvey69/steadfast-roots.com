@@ -1,0 +1,13 @@
+{% comment %} 
+#comment: This snippet renders a product image gallery.
+It loops through product images and displays them; if none exist, it shows a placeholder.
+{% endcomment %}
+<div class="product-gallery-snippet"> <!-- #comment: Container for the product image gallery snippet -->
+  {% if product.images.size > 0 %} <!-- #comment: Check if the product has any images -->
+    {% for image in product.images %} <!-- #comment: Loop through each product image -->
+      <img src="{{ image | img_url: 'large' }}" alt="{{ product.title }} image" /> <!-- #comment: Display the product image -->
+    {% endfor %} <!-- #comment: End loop through images -->
+  {% else %} <!-- #comment: If there are no images available -->
+    <img src="{{ 'product-placeholder.jpg' | asset_url }}" alt="Placeholder image" /> <!-- #comment: Display a placeholder image -->
+  {% endif %} <!-- #comment: End image check -->
+</div> <!-- #comment: End product image gallery snippet container -->
