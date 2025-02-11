@@ -33,7 +33,7 @@
           "@type": "Store",
           "name": "{{ shop.name }}",
           "url": "https://{{ shop.domain }}",
-          "logo": "{{ settings.store_logo | image_url: 'medium' }}",
+          "logo": "{{ shop.logo | image_url: 'medium' }}",
           "description": "{{ shop.description }}"
         }
         </script>
@@ -51,7 +51,7 @@
         </main>
     
         <!-- Include Footer Section with Warning if Missing -->
-        {% if settings.footer_enabled %}
+        {% if settings.footer_enabled != blank %}
           {% section 'footer' %}
         {% else %}
           <p style="color: red; text-align: center;">⚠️ Footer is missing. Please add a footer section.</p>
@@ -62,11 +62,9 @@
     
         <!-- Ensure JS Loads -->
         <script>
-          window.addEventListener('load', function() {
-              if (!document.querySelector('script[src*="theme.js"]')) {
-                  console.warn("⚠️ theme.js is missing. Please check the assets folder.");
-              }
-          });
+          if (!document.querySelector('script[src*="theme.js"]')) {
+            console.warn("⚠️ theme.js is missing. Please check the assets folder.");
+          }
         </script>
     </body>
     </html>
